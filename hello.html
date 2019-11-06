@@ -1,0 +1,28 @@
+<html>
+<head>
+	<!-- （必选）加载 Mock -->
+	<script src="http://mockjs.com/dist/mock.js"></script>
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+	<script>
+	// Mock.mock(rurl, template)
+	Mock.mock(/\.json/, {
+			'firstName':'zhang',
+			'language':['english','java','js']
+	})
+	function func() {
+		$.ajax({
+				url: 'hello.json',
+				dataType: 'json'
+		}).done(function(data, status, jqXHR){
+				$('.result').html($('<pre>').text(JSON.stringify(data,null,4)));
+		})
+	}
+	
+	</script>
+</head>
+<body>
+<input type="button" value="测试" onclick="func();"/>
+<div class="result"></div>
+</body>
+</html>
