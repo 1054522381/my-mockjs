@@ -5,12 +5,18 @@
 	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 
 	<script>
+	// timeOut
+	Mock.setup({
+			timeout: 300
+	});
+
 	// Mock.mock(rurl, template)
 	Mock.mock(/\.json/, {
 			'firstName':'zhang',
 			'language':['english','java','js']
 	})
 	function func() {
+	  $('.result').empty();
 		$.ajax({
 				url: 'hello.json',
 				dataType: 'json'
